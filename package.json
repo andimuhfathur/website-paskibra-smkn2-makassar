@@ -9,18 +9,46 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^5.18.0",
+    "@react-google-maps/api": "^2.19.3",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "firebase": "^10.14.0",
+    "formidable": "^3.5.1",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.11.3",
+    "next": "14.2.4",
+    "next-auth": "^4.24.8",
+    "next-connect": "^1.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.4"
+    "react-typed": "^2.0.12",
+    "react-youtube": "^10.1.0",
+    "typed.js": "^2.1.0",
+    "uuid": "^10.0.0",
+    "ws": "^8.18.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
+    "@babel/preset-typescript": "^7.24.7",
+    "@jest/globals": "^29.7.0",
+    "@types/bcrypt": "^5.0.2",
+    "@types/formidable": "^3.4.5",
+    "@types/jest": "^29.5.12",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^20.16.10",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "express": "^4.21.0",
     "postcss": "^8",
+    "prisma": "^5.18.0",
+    "sequelize-cli": "^6.6.2",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.4"
+    "ts-jest": "^29.2.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
   }
 }

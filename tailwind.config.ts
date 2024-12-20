@@ -8,12 +8,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        title: ['Montserrat'],
+        siss: ['Roboto']
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-three-colors": "linear-gradient(to right, #f9ce34,  #ee2a7b, #6228d7)"
       },
+      colors: {
+        coke: '#e3bf73',
+        reto: '#680d0c',
+        blacki: '#07090d',
+      }
     },
+    
   },
   plugins: [],
 };

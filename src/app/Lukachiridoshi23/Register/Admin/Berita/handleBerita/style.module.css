@@ -1,0 +1,23 @@
+
+.animationPop {
+    position: relative;
+    display: none;
+    z-index: 99999;
+    animation: Masuk .5s ease-in-out;
+}
+
+@keyframes Masuk {
+    from {
+        transform: scale(0.8);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.scrollbar {
+    height: 40rem;
+    overflow: hidden;
+    overflow-y: scroll;
+}

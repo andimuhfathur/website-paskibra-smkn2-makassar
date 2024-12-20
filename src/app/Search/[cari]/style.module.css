@@ -1,0 +1,24 @@
+
+.bg_content {
+    position: relative;
+    width: 17rem;
+    height: 5rem;
+    background-color: rgb(104, 13, 12);
+    top: 11rem;
+    transition: all ease-in-out .2s;
+}
+
+.content_judul {
+    display: flex;
+    align-items: center;
+    padding: 5%;
+    height: 4rem;
+    color: white;
+    font-weight: 600;
+}
+
+@media (max-width: 450px) {
+.bg_content{
+    width: 11rem;
+}
+}

@@ -1,0 +1,60 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+
+.hero .list_image .image {
+    position: absolute;
+}
+
+.hero .list_image .image .item {
+    height: 100vh;
+    position: relative;
+    object-fit: cover;
+    animation: anim 2s ease-in-out; 
+}
+
+@keyframes anim {
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
+}
+
+.hero .list_image .image::after{
+    content: '';
+    width: 60rem;
+    height: 100vh;
+    position: absolute;
+    bottom: 0%;
+    background-image: linear-gradient(to right, black, transparent);
+}
+
+
+.hero .text {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    position: relative;
+    z-index: 7777;
+    height: 100vh;
+}
+
+.hero .text .text_judul {
+    margin-top: 10rem;
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 5px 5px 5px black;
+}
+
+.hero .text .text_isi {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 5px 5px 5px black;
+}

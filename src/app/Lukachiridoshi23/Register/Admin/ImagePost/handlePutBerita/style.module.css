@@ -1,0 +1,25 @@
+.hal1 {
+    position: absolute;
+    padding: 5;
+    margin-right: 100rem;
+}
+
+.button {
+    position: relative;
+}
+
+.popupAnimation {
+    display: none;
+    position: absolute;
+    animation: Masuk .5s ease-in-out;
+}
+
+@keyframes Masuk {
+    from {
+        transform: scale(0.3);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}

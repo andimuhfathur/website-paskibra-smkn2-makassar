@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,9 +22,28 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/Navbar/page.tsx",
+    "src/app/Home/page.tsx",
+    "src/app/Home/news.jsx",
+    "src/app/Home/maps.jsx",
+    "src/app/Home/foo.tsx",
+    "src/app/Component/hendleInforman.tsx",
+    "src/app/Home/heroHome.tsx",
+    "src/app/api/Api/AdminRouter/route.tsx",
+    "src/app/api/auth/route.tsx",
+    "src/app/api/auth/route.tsx"
+, "src/app/Profile/hero.tsx", "src/app/Profile/lini.tsx", "src/app/Gallery/galery.jsx", "src/app/Lukachiridoshi23/Login/page.tsx", "src/app/api/handleAdmin/route.tsx", "lib/multer.jsx", "src/app/Lukachiridoshi23/Register/Admin/Berita/handleGet.jsx", "src/app/Lukachiridoshi23/Register/Admin/Berita/page.tsx"  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -1,0 +1,136 @@
+.lini {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+.lini .ju {
+    position: absolute;
+    z-index: 7777;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 4rem;
+    margin-left: 1rem;
+    color: white;
+    animation: Masuk3 1s ease-in-out;
+}
+
+.lini .leaders .leader {
+    padding: 4rem;
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    background-color: black;
+    height: 100vh;
+    width: 1263px;
+}
+
+.judu {
+    position: relative;
+    color: white;
+    font-size: 2rem;
+
+}
+
+.lini .leaders .leader .component {
+    margin-top: 7rem;
+    position: relative;
+    animation: Masuk1 1s ease-in-out;
+}
+
+.lini .leaders .leader .component .nama {
+    font-size: 5rem;
+    color: white;
+    font-weight: 700;
+}
+
+.lini .leaders .leader .component .tahun {
+    font-size: 4rem;
+    color: white;
+    font-weight: 700;
+}
+
+.lini .leaders .leader .img {
+    width: 20rem;
+    height: 20rem;
+    position: relative;
+    object-fit: cover;
+    margin-right: 5rem;
+    margin-top: 5rem;
+    border-radius: 50px;
+    animation: Masuk2 2s ease-in-out;
+}
+
+@keyframes Masuk1 {
+    from {
+        transform: translateX(-10%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes Masuk2 {
+    from {
+        transform: translateX(10%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes Masuk3 {
+    from {
+        transform: translateX(-10%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 450px) {
+    .lini {
+        margin-top: 30rem;
+    }
+
+        .lini .ju{
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+    .lini .leaders .leader {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .lini .leaders .leader .img {
+        width: 15rem;
+        height: 15rem;
+        margin-top: 20rem;
+    }
+
+    .lini .leaders .leader .component {
+        margin-bottom: 5rem;
+
+    }
+
+    .lini .leaders .leader .component .nama {
+        font-size: 2rem;
+
+    }
+
+    .lini .leaders .leader .component .tahun {
+        font-size: 1rem;
+
+    }
+
+}

@@ -1,0 +1,49 @@
+.background {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 100%;
+    background-color: black;
+}
+
+.hero {
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+    animation: Masuk1 3s ease-in-out;
+    transition: all ease-in-out .3s;
+}
+
+.hero span {
+    color: red;
+}
+
+.hero:hover {
+    color: red;
+}
+
+.hero span:hover{
+    color: white;
+}
+
+@keyframes Masuk1 {
+    from {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 450px) {
+    .hero {
+        font-size: 2rem;
+        width: 70%;
+    }
+}

@@ -1,0 +1,43 @@
+.botutap{
+    position: relative;
+}
+.bodytable {
+    position: absolute;
+    margin-left: 17rem;
+    margin-top: 3rem;
+    height: 33rem;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.popupAnimation {
+    display: none;
+    position: relative;
+    animation: Masuk .5s ease-in-out;
+}
+
+@keyframes Masuk {
+    from {
+        transform: scale(0.3);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.popDelete{
+    display: none;
+    position: relative;
+    animation: Masuk2 .5s ease-in-out;
+}
+
+@keyframes Masuk2 {
+    from {
+        transform: scale(0.3);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}

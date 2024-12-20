@@ -1,0 +1,10 @@
+@media (max-width: 450px) {
+    .Search{
+        display: none;
+        position: relative;
+        top: 4rem;
+        z-index: 11000;
+    }
+
+    
+}

@@ -1,0 +1,13 @@
+.divi {
+    align-items: center;
+    transition: all 5s ease-in-out;
+}
+
+.divi:hover{
+    align-items: normal;
+}
+
+.divi{
+    content: '';
+}
+
