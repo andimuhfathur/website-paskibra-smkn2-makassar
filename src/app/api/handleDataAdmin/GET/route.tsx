@@ -1,6 +1,7 @@
-"use server"
+// "use server"
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "../POST/prisma/prisma"
+
 export async function GET(req: NextRequest, res : NextResponse) {
     const data = await prisma.user.findMany()
     console.log(data);
