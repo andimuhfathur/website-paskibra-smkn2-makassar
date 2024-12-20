@@ -10,6 +10,7 @@ export async function GET(req: NextRequest, res : NextResponse) {
 
         return NextResponse.json({ data: 'data tidak ada' }, { status: 200 })
     }
+    prisma.$disconnect()
     console.log("berhasil");
 
     return NextResponse.json({ data: data }, { status: 200 })

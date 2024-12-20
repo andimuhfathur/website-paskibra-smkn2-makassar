@@ -18,5 +18,6 @@ export async function GET(req: NextRequest, context: { params: { id: string } })
         console.log(`data ada : ${gambar}`);
         return NextResponse.json({ data: "tidak ada data" }, { status: 401 })
     }
+    prisma.$disconnect()
     return NextResponse.json({data : gambar}, {status: 200})
 }

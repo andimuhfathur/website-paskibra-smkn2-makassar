@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
 
     } else {
         // console.log(`ini berita nya : ${berita}`);
-        
+        prisma.$disconnect()
         return NextResponse.json({data: berita}, {status: 200})
     }
 }

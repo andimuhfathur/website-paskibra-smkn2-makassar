@@ -21,6 +21,7 @@ export async function GET(req: NextRequest) {
         console.log("search gagal");
         return NextResponse.json({ data: "gagal" }, { status: 500 })
     }
+    prisma.$disconnect()
     console.log("search berhasil");
     return NextResponse.json({ data: berita }, { status: 200 })
     

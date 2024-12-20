@@ -93,7 +93,7 @@ export async function POST(req: NextRequest) {
         
     } catch (err) {
         console.log(err);
-        
+        prisma.$disconnect()
         return NextResponse.json({ data: 'gagal Upload' }, { status: 500 })
 
    }

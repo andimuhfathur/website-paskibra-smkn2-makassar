@@ -70,6 +70,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ pesan: `data gagal ${berita}` }, { status: 400 })
 
     } else {
+        prisma.$disconnect()
         console.log(berita);
         return NextResponse.json({pesan : `data berhasil ${berita}`}, {status: 200})
     }

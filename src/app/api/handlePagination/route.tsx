@@ -3,6 +3,8 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient()
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(req: NextRequest) {
     try {
         const { searchParams } = new URL(req.url)
@@ -25,6 +27,8 @@ export async function GET(req: NextRequest) {
         ])
 
         const totalPage = Math.ceil(total / limit)
+
+        prisma.$disconnect()
 
         return NextResponse.json({
             data: posts,

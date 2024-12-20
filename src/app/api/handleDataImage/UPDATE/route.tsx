@@ -53,6 +53,7 @@ export async function PUT(req: NextRequest) {
         return NextResponse.json({ data: "api image gagal" }, { status: 500 })
 
     } else {
+        prisma.$disconnect()
         console.log("update image berhasil");
         return NextResponse.json({data : "aman"}, {status: 200})
         

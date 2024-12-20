@@ -3,6 +3,8 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient()
 
+export const dynamic ='force-dynamic'
+
 export async function GET(req: NextRequest) {
     try {
         const { searchParams } = new URL(req.url)
@@ -26,6 +28,8 @@ export async function GET(req: NextRequest) {
 
         const totalPage = Math.ceil(total / limit)
 
+        prisma.$disconnect()
+
         return NextResponse.json({
             data: data,
             meta: {
@@ -33,7 +37,8 @@ export async function GET(req: NextRequest) {
                 limit,
                 total,
                 totalPage
-        }})
+            }
+        })
     } catch (error) {
         console.error(`ini adalah error nya ${error}`)
         return NextResponse.json({data : 'pagination news gagal'}, {status: 500})

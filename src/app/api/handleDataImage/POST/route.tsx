@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
         console.log("post Image gagal");
         return NextResponse.json({ data: "gagal" }, { status: 500 })
     } else {
+        prisma.$disconnect()
         console.log("post Image berhasil");
         return NextResponse.json({data: "berhasil"}, {status: 200})
     }

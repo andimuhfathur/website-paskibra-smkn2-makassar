@@ -11,7 +11,7 @@ export const GET = async (req: NextRequest, context : {params : {id : string}}) 
             id_berita : id
         }
     })
-
+    prisma.$disconnect()
     return NextResponse.json({data : berita}, {status: 200})
 };
 

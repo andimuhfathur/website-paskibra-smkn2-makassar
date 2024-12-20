@@ -2,7 +2,6 @@
 import Link from "next/link"
 import { useEffect } from "react"
 import Image from "next/image";
-import Search from "../Component/Search"
 import Image1 from "../../../public/about/images-removebg-preview.png"
 import { usePathname } from "next/navigation";
 import Cari from "./SearchTag";

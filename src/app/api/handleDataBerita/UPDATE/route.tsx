@@ -46,7 +46,7 @@ id_berita: id
             isi_berita: isiBaru
         }
     })
-
+    prisma.$disconnect()
 console.log("data berhasil terupdate");
 
     return NextResponse.json({ data: "hello" }, { status: 200 })
