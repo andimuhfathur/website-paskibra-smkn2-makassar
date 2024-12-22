@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
         const berita = await prisma.berita.create({
             data: {
                 judul: judul,
-                image: `/public/uploadsNews/${fileName}`,
+                image: `/uploadsNews/${fileName}`,
                 isi_berita: isi,
             }
         })
