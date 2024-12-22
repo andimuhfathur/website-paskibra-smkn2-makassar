@@ -28,7 +28,6 @@ export async function GET(req: NextRequest) {
 
         const totalPage = Math.ceil(total / limit)
 
-        prisma.$disconnect()
 
         return NextResponse.json({
             data: data,
@@ -42,5 +41,7 @@ export async function GET(req: NextRequest) {
     } catch (error) {
         console.error(`ini adalah error nya ${error}`)
         return NextResponse.json({data : 'pagination news gagal'}, {status: 500})
+    } finally {
+        prisma.$disconnect()
     }
 }

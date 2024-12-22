@@ -42,7 +42,7 @@
     "src/app/api/Api/AdminRouter/route.tsx",
     "src/app/api/auth/route.tsx",
     "src/app/api/auth/route.tsx"
-, "src/app/Profile/hero.tsx", "src/app/Profile/lini.tsx", "src/app/Gallery/galery.jsx", "src/app/Lukachiridoshi23/Login/page.tsx", "src/app/api/handleAdmin/route.tsx", "lib/multer.jsx", "src/app/Lukachiridoshi23/Register/Admin/Berita/handleGet.jsx", "src/app/Lukachiridoshi23/Register/Admin/Berita/page.tsx"  ],
+, "src/app/Profile/hero.tsx", "src/app/Profile/lini.tsx", "src/app/Gallery/galery.jsx", "src/app/Lukachiridoshi23/Login/page.tsx", "src/app/api/handleAdmin/route.tsx", "lib/multer.jsx", "src/app/Lukachiridoshi23/Register/Admin/Berita/handleGet.jsx", "src/app/Lukachiridoshi23/Register/Admin/Berita/page.tsx", ".next/types/app/api/handleDataAdmin/GET/[id]/route.tsx"  ],
   "exclude": [
     "node_modules"
   ]

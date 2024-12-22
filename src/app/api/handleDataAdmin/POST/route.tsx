@@ -2,16 +2,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import fs, { writeFileSync } from "fs";
+import { createClient } from "@supabase/supabase-js";
 import { prisma } from "./prisma/prisma";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken'
 
+export const dynamic = 'force-dynamic'
+
+
 
 export async function POST(req: NextRequest) {
 
-    const formData = await req.formData()
     
     try {
+    const formData = await req.formData()
         const image = formData.get('image') as File
         const username = formData.get('username') as string
         const email = formData.get('email') as string
@@ -33,11 +37,10 @@ export async function POST(req: NextRequest) {
         }
 
         const fileName = `${Date.now()}-${image.name}`
-        const filePath = path.join(process.cwd(), 'public/uploadsAdmin', fileName)
-        const ubahBuffer = await image.arrayBuffer()
+        const tak = path.join(process.cwd(), 'public/uploadsAdmin', fileName)
+        const uabh = await image.arrayBuffer()
 
-        writeFileSync(filePath, Buffer.from(ubahBuffer))
-
+        writeFileSync(tak, Buffer.from(uabh))
         const very = await prisma.user.findUnique({
             where: { email }
         })
@@ -93,12 +96,11 @@ export async function POST(req: NextRequest) {
         
     } catch (err) {
         console.log(err);
-        prisma.$disconnect()
+        
         return NextResponse.json({ data: 'gagal Upload' }, { status: 500 })
 
-   }
-     
-
-            
+    } finally {
+        prisma.$disconnect()
+   }     
         }
     

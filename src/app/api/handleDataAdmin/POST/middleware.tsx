@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 
+export const dynamic = 'force-dynamic'
+
+
 export function Middleware(req: NextRequest) {
     const cokkieToken = req.cookies.get('token')
 

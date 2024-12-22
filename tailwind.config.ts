@@ -22,6 +22,7 @@ const config: Config = {
         coke: '#e3bf73',
         reto: '#680d0c',
         blacki: '#07090d',
+        coked: '#c7a763'
       }
     },
     
