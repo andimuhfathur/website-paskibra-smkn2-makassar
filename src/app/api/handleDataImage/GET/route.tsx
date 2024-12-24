@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient()
-
-export const dynamic = 'force-dynamic'
+import { prisma } from "../../prisma/prisma"
 
 export async function GET(req: NextRequest) {
     console.log("api GET image terhubung");

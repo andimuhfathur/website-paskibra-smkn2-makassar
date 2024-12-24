@@ -5,7 +5,8 @@ import fs, { writeFileSync } from 'fs'
 import { getToken } from 'next-auth/jwt'
 import { createClient } from "@supabase/supabase-js";
 
-const prisma = new PrismaClient()
+import { prisma } from "../../prisma/prisma"
+
 
 export const dynamic = 'force-dynamic'
 

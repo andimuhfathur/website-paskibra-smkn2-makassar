@@ -21,8 +21,6 @@ model user {
   email String @unique
   password String @unique
   tanggal_register DateTime @default(now())
-  // news berita[]
-  // images image[]
 }
 
 model berita {
@@ -31,8 +29,6 @@ model berita {
   image String
   isi_berita String
   tanggalUpload DateTime @default(now())
-  // userId Int
-  // users user @relation(fields: [userId], references: [id])
 }
 
 model image {
@@ -40,6 +36,4 @@ id_image Int @id @default(autoincrement())
 judulImage String 
 urlImage String
 tanggalUploadImage DateTime @default(now())
-// userId Int
-//   users user @relation(fields: [userId], references: [id])
 }

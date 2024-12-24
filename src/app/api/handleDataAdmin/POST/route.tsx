@@ -3,12 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import fs, { writeFileSync } from "fs";
 import { PrismaClient } from "@prisma/client";
+import {prisma} from "../../prisma/prisma"
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken'
-
-export const dynamic = 'force-dynamic'
-
-const prisma = new PrismaClient()
 
 export async function POST(req: NextRequest) {
 

@@ -3,9 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import path from "path";
 import { writeFileSync } from "fs";
 
-const prisma = new PrismaClient()
-
-export const dynamic = 'force-dynamic'
+import { prisma } from "../../prisma/prisma"
 
 export async function POST(req: NextRequest) {
     try {
