@@ -20,6 +20,7 @@ export async function GET(req: NextRequest) {
             return NextResponse.json({ data: gamabar }, { status: 200 })
         }
     } catch (error) {
+        console.error(error)
         return NextResponse.json({ data: error }, { status: 500 })
     } finally {
         prisma.$disconnect()

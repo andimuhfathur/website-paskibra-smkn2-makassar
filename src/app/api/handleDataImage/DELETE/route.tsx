@@ -32,6 +32,7 @@ export async function DELETE(req: NextRequest) {
         console.log("api delete berhasil");
         return NextResponse.json({ data: "api terhubung" }, { status: 200 })
     } catch (error) {
+        console.error(error)
         return NextResponse.json({ data: error }, { status: 500 })
     } finally {
         prisma.$disconnect()

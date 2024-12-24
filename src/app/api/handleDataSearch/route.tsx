@@ -30,6 +30,7 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({ data: berita }, { status: 200 })
 
     } catch (error) {
+        console.error(error)
         return NextResponse.json({ data: error }, { status: 500 })
     } finally {
         prisma.$disconnect()

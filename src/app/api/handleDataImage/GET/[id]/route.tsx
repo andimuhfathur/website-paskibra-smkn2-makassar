@@ -23,6 +23,7 @@ export async function GET(req: NextRequest, context: { params: { id: string } })
        
         return NextResponse.json({ data: gambar }, { status: 200 })
     } catch (error) {
+        console.error(error)
         return NextResponse.json({ data: error }, { status: 500 })
     } finally {
         prisma.$disconnect()
