@@ -16,7 +16,7 @@ const HandleGetBerita = () => {
 
         setidImage(id)
 
-        const url = await fetch(`/api/handleDataImage/GET/${id}`, { cache: "no-store" })
+        const url = await fetch(`${process.env.NEXT_PUBLIC_API_GETIMAGE}/${id}`, { cache: "no-store" })
         const res = await url.json()
         console.log(res.data);
 
@@ -40,7 +40,7 @@ const HandleGetBerita = () => {
         if (image) {
             formData.append("image", image)
         }
-        const urlPut = await fetch('/api/handleDataImage/UPDATE', {
+        const urlPut = await fetch(`${process.env.NEXT_PUBLIC_API_UPDATEIMAGE}`, {
             method: 'PUT',
             body: formData
         })
@@ -66,7 +66,7 @@ const HandleGetBerita = () => {
 
         setIdDelete(id)
 
-        const url = await fetch(`/api/handleDataImage/GET/${id}`, { cache: "no-store" })
+        const url = await fetch(`${process.env.NEXT_PUBLIC_API_GETIMAGE}/${id}`, { cache: "no-store" })
         const res = await url.json()
         console.log(res.data);
         document.addEventListener("click", function () {
@@ -81,7 +81,7 @@ const HandleGetBerita = () => {
         const formData = new FormData()
         formData.append("id", idDelete)
 
-        const url = await fetch('/api/handleDataImage/DELETE', {
+        const url = await fetch(`${process.env.NEXT_PUBLIC_API_DELETEIMAGE}`, {
             method: 'DELETE',
             body: formData
         })
@@ -102,7 +102,7 @@ const HandleGetBerita = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const url = await fetch('/api/handleDataImage/GET', { cache: "no-store" })
+            const url = await fetch(`${process.env.NEXT_PUBLIC_API_GETIMAGE}`, { cache: "no-store" })
             const res = await url.json()
             setData(res.data)
         }

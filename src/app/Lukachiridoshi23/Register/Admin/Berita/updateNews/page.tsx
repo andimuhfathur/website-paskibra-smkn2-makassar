@@ -17,7 +17,7 @@ const updateNews = () => {
         }
         formData.append('isi', isi)
 
-        const respon = await fetch('/api/handleDataBerita/UPDATE', {
+        const respon = await fetch(`${process.env.NEXT_PUBLIC_API_GET}`, {
             method: 'PUT',
             body: formData
         })

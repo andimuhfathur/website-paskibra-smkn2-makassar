@@ -10,7 +10,7 @@ const pagination = () => {
     const [meta, setMeta] = useState({ totalPage: 0 })
     
     const fetchData = async (page: number) => {
-        const url = await fetch(`/api/handlePaginationNews?page=${page}&limit=10`)
+        const url = await fetch(`${process.env.NEXT_PUBLIC_API_PAGINATION_NEWS}?page=${page}&limit=10`)
         const res = await url.json()
         setResult(res.data)
         setMeta(res.meta)

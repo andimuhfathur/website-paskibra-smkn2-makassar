@@ -9,7 +9,7 @@ const Data = () => {
 
     useEffect(() => {
         const fetcdata = async () => {
-            const fetchdata = await fetch(url, { cache: 'no-store' })
+            const fetchdata = await fetch(`${process.env.NEXT_PUBLIC_API_GET}`, { cache: 'no-store' })
             const res = await fetchdata.json()
             setpost(res.data)
         }

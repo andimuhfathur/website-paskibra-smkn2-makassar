@@ -12,7 +12,7 @@ const Gale = () => {
     const handleDownload = async (idDownload: string) => {
         console.log(`idDownload  = ${idDownload}`);
 
-        const url = await fetch(`/api/handleDataImage/GET/${idDownload}`, { cache: "no-store" })
+        const url = await fetch(`${process.env.NEXT_PUBLIC_API_GETIMAGE}/${idDownload}`, { cache: "no-store" })
         const res = await url.json()
         
         
@@ -31,7 +31,7 @@ const Gale = () => {
     const bacaId = async (idFoto: string) => {
         setIdImage(idFoto)
 
-        const url = await fetch(`/api/handleDataImage/GET/${idFoto}`, { cache: "no-store" })
+        const url = await fetch(`${process.env.NEXT_PUBLIC_API_GETIMAGE}/${idFoto}`, { cache: "no-store" })
         const res = await url.json()
         
         if (res?.data) {
@@ -62,7 +62,7 @@ const Gale = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const url = await fetch('/api/handleDataImage/GET', { cache: "no-store" })
+            const url = await fetch(`${process.env.NEXT_PUBLIC_API_GETIMAGE}`, { cache: "no-store" })
             const res = await url.json()
             setData(res.data)
         }
@@ -76,7 +76,7 @@ const Gale = () => {
     const [meta, setMeta] = useState({ totalPage: 0 })
     
     const paginationFetch = async (page : number) => {
-        const url = await fetch(`/api/handlePagination?page=${page}&limit=10`)
+        const url = await fetch(`${process.env.NEXT_PUBLIC_API_PAGINATION}?page=${page}&limit=10`)
         const res = await url.json()
         if (!res) {
             console.log("res gagal");

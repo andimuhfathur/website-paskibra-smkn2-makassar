@@ -11,19 +11,19 @@ interface Detoken {
 }
 const Home = async () => {
 
-//     const [user, setUser] = useState<Detoken | null>(null)
+    const [user, setUser] = useState<Detoken | null>(null)
 
-//     useEffect(() => {
-//         // mengambil data dari token 
-//         const token = document.cookie.split(';').find(row => row.startsWith('token = '))?.split('=')[1]
+    useEffect(() => {
+        // mengambil data dari token 
+        const token = document.cookie.split(';').find(row => row.startsWith('token = '))?.split('=')[1]
 
-//         if (token) {
-//             const deco = jwt.decode(token) as Detoken
-//             if (deco) {
-//                 setUser(deco)
-//             }
-//         }
-// }, [])
+        if (token) {
+            const deco = jwt.decode(token) as Detoken
+            if (deco) {
+                setUser(deco)
+            }
+        }
+}, [])
     
     return (
         <div className="flex w-full gap-4 h-auto">

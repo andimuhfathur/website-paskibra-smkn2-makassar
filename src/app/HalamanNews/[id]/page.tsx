@@ -10,7 +10,7 @@ const HalNew = ({ params }: { params: { id: string } }) => {
     const [bet, setbet] = useState<any[]>([])
 
     const fetchNew = async (param: string) => {
-        const url = await fetch(`/api/handleDataBerita/GET/${param}`, { cache: "no-store" })
+        const url = await fetch(`${process.env.NEXT_PUBLIC_API_GETBERITA}/${param}`, { cache: "no-store" })
         const res = await url.json()
         if (res?.data) {
             setbet([res.data])
@@ -25,7 +25,7 @@ const HalNew = ({ params }: { params: { id: string } }) => {
 
     useEffect(() => {
         const fetchLates = async () => {
-            const url = await fetch('/api/handlePaginationNews?limit=3', { cache: "no-store" })
+            const url = await fetch(`${process.env.NEXT_PUBLIC_API_PAGINATION_NEWS}?limit=3`, { cache: "no-store" })
             const res = await url.json()
             setLate(res.data)
         }

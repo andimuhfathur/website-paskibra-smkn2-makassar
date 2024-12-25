@@ -13,7 +13,7 @@ const Search = ({ params }: { params: { cari: string } }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const url = await fetch(`/api/handleDataSearch?query=${encodeURIComponent(dekode)}`)
+            const url = await fetch(`${process.env.NEXT_PUBLIC_API_SEARCH_NEWS}?query=${encodeURIComponent(dekode)}`)
             const res = await url.json()
             setResult(res.data)
         }

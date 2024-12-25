@@ -14,7 +14,7 @@ const HandlePostimage = () => {
             formData.append("image", image)
         }
 
-        const apiPost = await fetch('/api/handleDataImage/POST', {
+        const apiPost = await fetch(`${process.env.NEXT_PUBLIC_API_POSTIMAGE}`, {
             method: 'POST', 
             body: formData
         })

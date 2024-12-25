@@ -33,7 +33,7 @@ const NewsPost = ({params} : {params? : {id : string}}) => {
         // console.log({ idNews, judul, image, isi});
         
 
-        const respon = await fetch(`/api/handleDataBerita/UPDATE`, {
+        const respon = await fetch(`${process.env.NEXT_PUBLIC_API_UPDATE}`, {
             method: 'PUT',
             body: formData
         })
@@ -50,7 +50,7 @@ const NewsPost = ({params} : {params? : {id : string}}) => {
     const [data, setdata] = useState<[]>([])
     useEffect(() => {
         const fetchData = async () => {
-            const respone = await fetch(url, { cache: "no-store" })
+            const respone = await fetch(`${process.env.NEXT_PUBLIC_API_GET}`, { cache: "no-store" })
             const beritas = await respone.json()
            setdata(beritas.data)
         }
@@ -61,7 +61,7 @@ const NewsPost = ({params} : {params? : {id : string}}) => {
 
         setIdNews(id_berita)
         
-        const getData = await fetch(`/api/handleDataBerita/GET/${id_berita}`, { cache: "no-store" })
+        const getData = await fetch(`${process.env.NEXT_PUBLIC_API_GET}/${id_berita}`, { cache: "no-store" })
         const res = await getData.json()
 
         setjudul(res.data.judul)
@@ -96,7 +96,7 @@ const NewsPost = ({params} : {params? : {id : string}}) => {
         const formData = await new FormData()
         formData.append("id", idNews)
 
-        const hubungkan = await fetch('/api/handleDataBerita/DELETE', {
+        const hubungkan = await fetch(`${process.env.NEXT_PUBLIC_API_DELETE}`, {
             method: "DELETE",
             body: formData
         })
@@ -118,7 +118,7 @@ const NewsPost = ({params} : {params? : {id : string}}) => {
 
         console.log(`ini adalah ${id}`);
 
-        const getData = await fetch(`/api/handleDataBerita/GET/${id}`, { cache: "no-store" })
+        const getData = await fetch(`${process.env.NEXT_PUBLIC_API_GET}/${id}`, { cache: "no-store" })
         const res = await getData.json()
         
 

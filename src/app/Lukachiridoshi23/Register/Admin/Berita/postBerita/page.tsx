@@ -21,7 +21,7 @@ const Berita = () => {
         }
         Form.append('isi', isi)
 
-        const respone = await fetch('/api/handleDataBerita/POST', {
+        const respone = await fetch(`${process.env.NEXT_PUBLIC_API_POST}`, {
             method: 'POST',
             body: Form
         })

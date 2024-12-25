@@ -57,7 +57,7 @@ const Login = () => {
         setLoading(false)
         
 
-        const respone = await fetch('/api/handleDataAdmin/POST', {
+        const respone = await fetch(`${process.env.NEXT_PUBLIC_API_POSTADMIN}`, {
             method: 'POST',
             body: Form
         })
