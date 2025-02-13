@@ -11,20 +11,19 @@ import Cari from "./SearchTag";
 const Navbar = () => {
     const pat = usePathname()
 
-    const tidakAdaNavbar = ['/Lukachiridoshi23/Register/Admin',
+    const tidakAdaNavbar = ['/Lukachiridoshi23/Admin',
         '/Lukachiridoshi23/Login',
-        '/Lukachiridoshi23/Ragister',
-        '/Lukachiridoshi23/Register/Admin/UserPage',
-        '/Lukachiridoshi23/Register/Admin/Berita',
-        '/Lukachiridoshi23/Register/Admin/ImagePost',
-        '/Lukachiridoshi23/Register/Admin/Anggota',
-        '/Lukachiridoshi23/Register/Admin/Berita/handleBerita',
-        '/Lukachiridoshi23/Register/Admin/Berita/updateNews',
-        '/Lukachiridoshi23/Register/Admin/Berita/fetchData',
-        '/Lukachiridoshi23/Register/Admin/ImagePost/formPostBerita',
-        '/Lukachiridoshi23/Register/Admin/ImagePost/handleGetBerita',
-        '/Lukachiridoshi23/Register/Admin/ImagePost/handlePutBerita',
-    '/Lukachiridoshi23/Register']
+        '/Lukachiridoshi23/Register',
+        '/Lukachiridoshi23/Admin/UserPage',
+        '/Lukachiridoshi23/Admin/Berita',
+        '/Lukachiridoshi23/Admin/ImagePost',
+        '/Lukachiridoshi23/Admin/Anggota',
+        '/Lukachiridoshi23/Admin/Berita/handleBerita',
+        '/Lukachiridoshi23/Admin/Berita/updateNews',
+        '/Lukachiridoshi23/Admin/Berita/fetchData',
+        '/Lukachiridoshi23/Admin/ImagePost/formPostBerita',
+        '/Lukachiridoshi23/Admin/ImagePost/handleGetBerita',
+        '/Lukachiridoshi23/Admin/ImagePost/handlePutBerita',]
     return !tidakAdaNavbar.includes(pat) ?
         <div>
             <div className="flex items-center justify-between p-4 bg-coke text-reto  w-full h-[4rem] z-[9999]" id="Home">

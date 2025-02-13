@@ -4,10 +4,17 @@ import path from "path";
 import { writeFileSync } from "fs";
 
 import { prisma } from "../../prisma/prisma"
+import { auth } from "../../../../../auth";
 
 export async function POST(req: NextRequest) {
     try {
         const formData = await req.formData()
+
+        const session = await auth()
+
+        if (!session || !session.user.id) {
+            return NextResponse.json({pesan: "id user tidak valid"})
+        }
 
         const judulImage = formData.get("judul") as string
         const image = formData.get("image") as File
@@ -31,7 +38,8 @@ export async function POST(req: NextRequest) {
         const gambar = await prisma.image.create({
             data: {
                 judulImage: judulImage,
-                urlImage: `/uploadsImage/${nameImage}`
+                urlImage: `/uploadsImage/${nameImage}`,
+                userId: session.user.id
             }
         })
 

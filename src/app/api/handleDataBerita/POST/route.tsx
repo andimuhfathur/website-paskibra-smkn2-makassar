@@ -6,6 +6,7 @@ import { getToken } from 'next-auth/jwt'
 import { createClient } from "@supabase/supabase-js";
 
 import { prisma } from "../../prisma/prisma"
+import { auth } from "../../../../../auth";
 
 
 export const dynamic = 'force-dynamic'
@@ -20,6 +21,12 @@ export async function POST(req: NextRequest) {
 
     try {
         const form = await req.formData()
+
+        const session = await auth()
+
+        if (!session || !session.user.id) {
+            return NextResponse.json({pesan: "id user tidak valid"})
+        }
 
 
         const judul = form.get('judul') as string
@@ -64,7 +71,8 @@ export async function POST(req: NextRequest) {
                 judul: judul,
                 image: `/uploadsNews/${fileName}`,
                 isi_berita: isi,
-            }
+                userId : session?.user.id
+            },
         })
 
         if (!berita) {

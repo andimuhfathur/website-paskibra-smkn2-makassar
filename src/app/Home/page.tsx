@@ -12,7 +12,6 @@ const Home = async () => {
     return (
 
         <div className="font-semibold">
-
             <HeroHome />
             <Informan  />
             <Pengibaran />

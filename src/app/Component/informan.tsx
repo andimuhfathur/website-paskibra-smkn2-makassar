@@ -75,7 +75,7 @@ const Informan = () => {
             <div className="h-screen">
                 <div className="flex flex-wrap p-4 gap-4">
                     <div className="w-[40rem] h-[26rem] p-4  shadow-xl rounded-xl ">
-                        <a href="/Kesiswaan">
+                        <Link href="/Kesiswaan">
                             <h1 className="font-semibold  text-xl items-center">Prestasi</h1>
                             {dataNews.map((datas: any) => {
                                 return (
@@ -90,17 +90,17 @@ const Informan = () => {
                                 )
                             })}
 
-                        </a>
+                        </Link>
                     </div>
 
-                    <div className="md:w-[35rem] md:h-[26rem] p-4 shadow-xl  rounded-xl w-[23.1rem] h-[26rem]">
+                    <div className="md:w-[35rem] md:h-[26rem] p-4 shadow-xl  rounded-xl w-[23.1rem] h-[26rem] ">
                         <h1 className=" font-semibold  text-xl items-center">Info Terbaru</h1>
                         <div className="h-[70%] overflow-y-scroll skr">
                             <div className="w-max gap-4">
                                 {data.map((dat: any) => {
                                     return (
                                         <Link href={`/HalamanNews/${dat.id_berita}`} key={dat.id_berita}>
-                                            <div className="flex md:w-[30rem] md:h-[8rem] p-2  m-2 rounded-xl shadow-2xl w-[20rem] h-[8rem]" key={dat.id_berita}>
+                                            <div className="flex md:w-[30rem] md:h-[8rem] p-2  m-2 rounded-xl shadow-2xl w-[20rem] h-[8rem] " key={dat.id_berita}>
                                                 <Image src={dat.image} width={400} height={200} className=" w-auto h-auto rounded-xl  backdrop-brightness-50 object-cover" alt="Ini paskibra stemzha" />
                                                 <h1 className=" ml-2">{dat.judul}</h1>
                                             </div>
@@ -112,7 +112,7 @@ const Informan = () => {
                         </div>
                         <div className="mt-11">
 
-                            <button className=" font-semibold" onClick={handleLihat} >Lihat Semua</button>
+                            <button className="border-2 p-[0.5rem] rounded-3xl  font-semibold  transition-all hover:bg-white hover:" onClick={handleLihat} >Lihat Semua</button>
 
 
                         </div>

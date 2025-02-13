@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
-
 import { prisma } from "../../prisma/prisma"
 
 export async function GET(req: NextRequest) {
     console.log("api GET image terhubung");
 
     try {
+        
         const gamabar = await prisma.image.findMany()
 
         if (!gamabar) {

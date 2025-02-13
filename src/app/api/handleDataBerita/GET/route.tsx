@@ -2,11 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import {prisma} from "../../prisma/prisma"
 
-
-
-
 export async function GET(req: NextRequest) {
     try {
+        
         const berita = await prisma.berita.findMany()
         if (!berita) {
             console.log('berita tidak ada');

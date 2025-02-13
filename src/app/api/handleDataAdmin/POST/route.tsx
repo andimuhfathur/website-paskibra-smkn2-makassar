@@ -2,15 +2,24 @@
 import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import fs, { writeFileSync } from "fs";
-import { PrismaClient } from "@prisma/client";
 import {prisma} from "../../prisma/prisma"
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken'
+import { z } from "zod"
+import { redirect } from "next/navigation";
+import { hashSync } from "bcrypt";
+
+
+const schemaRegister = z.object({
+    username: z.string().min(3, { message: "Karakter minimal 3 karakter" }),
+    email: z.string().email().min(3, { message: "email anda kurang 3 karakter" }),
+    password: z.string().min(6, { message: 'password anda kurang 6 karakter' }),
+    image: z.instanceof(File).optional()
+})
 
 export async function POST(req: NextRequest) {
-
-    
     try {
+        // pengambilan data dari frontend
     const formData = await req.formData()
         const image = formData.get('image') as File
         const username = formData.get('username') as string
@@ -32,68 +41,60 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ data: 'password mana bro' }, { status: 403 })
         }
 
-        const fileName = `${Date.now()}-${image.name}`
-        const tak = path.join(process.cwd(), 'public/uploadsAdmin', fileName)
-        const uabh = await image.arrayBuffer()
+        // validasi data
 
-        writeFileSync(tak, Buffer.from(uabh))
-        const very = await prisma.user.findUnique({
-            where: { email }
-        })
+        const validasiDataAdmin = schemaRegister.safeParse({ username, email, password, image })
 
-        if (very) {
-            console.log('email sudah terdaftar');
-            return NextResponse.json({pesan : 'email sudah terdaftar'})
+        const usernameAdmin = validasiDataAdmin.data?.username
+        const imageAdmin = validasiDataAdmin.data?.image
+        const emailAdmin = validasiDataAdmin.data?.username
+        const passwordAdmin = validasiDataAdmin.data?.username
+        
+        
+        
+        if (!validasiDataAdmin.success) {
+            return {
+                error: validasiDataAdmin.error.flatten().fieldErrors,
+                res : NextResponse.json({message: "sukses"}, {status: 200})
+            }
         }
 
-        const hashEmail = await bcrypt.hash(email, 10)
-        const hashPassword = await bcrypt.hash(password, 10)
-
-        const user = await prisma.user.create({
-            data: {
-                username: username,
-                image: `/uploadsAdmin/${fileName}`,
-                email: hashEmail,
-                password: hashPassword
+        const valid = await prisma.user.findUnique({
+            where: {
+                email: email
             }
         })
-        
 
-       await console.log('Register Berhasil');
-        
-
-       
-
-        const bandingkanPassword = await bcrypt.compare(password, user.password)
-        if (!bandingkanPassword) {
-            return NextResponse.json({pesan : 'password tidak falid'}, {status: 401})
+        if (valid) {
+            return NextResponse.json({ message: "data sudah ada" }, { status: 402 })
         }
 
-       await console.log('perbandingan berhasil');
-        
+        const hashpas = hashSync(password, 10)
 
-        // membuat token jwt
-        const token = jwt.sign(
-            { id: user.id, username: user.username, image: user.image, email: email, password: user.password },
-            '9d1aS3cfL1k9U6mjR4oPq7Zt8v5WnXy!',
-            {expiresIn: '1h'}
-        )
+        const namaFile = `${Date.now()}-${image.name}`
+        const LetakFile = path.join(process.cwd(), "public/uploadsAdmin", namaFile)
+        const ubahBuf = await image.arrayBuffer()
 
-       await console.log('jwt berhasil');
-        
-        
-        const res = NextResponse.redirect('http://localhost:3000/Lukachiridoshi23/Register/Admin', {status: 302})
-        res.cookies.set('token', token, { httpOnly: true, path: '/Admin' })
-        
-        await console.log('res berhasil');
+        writeFileSync(LetakFile, Buffer.from(ubahBuf))
 
-        return res
-        
+        const createAdmin = await prisma.user.create({
+            data: {
+                username: usernameAdmin,
+                image: `/uploadsAdmin/${image.name}`,
+                email: email,
+                password: hashpas
+            }
+        })
+
+        if (createAdmin) {
+            return NextResponse.json({message: createAdmin}, {status: 202})
+        }
+
         
     } catch (err) {
-        console.log(err);
+        console.log(`ini error nya ${err}`);
         
-        return NextResponse.json({ data: 'gagal Upload' }, { status: 500 })
+        return NextResponse.json({ message: 'gagal Upload' }, { status: 500 })
 
     } finally {
         prisma.$disconnect()

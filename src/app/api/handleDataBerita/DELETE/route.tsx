@@ -1,12 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
-import {prisma} from "../../prisma/prisma"
+import { prisma } from "../../prisma/prisma"
+import { auth } from "../../../../../auth";
 
 
-
-
-
-export async function DELETE(req : NextRequest) {
+export async function DELETE(req: NextRequest) {
     console.log("api delete terhubung");
 
     try {
@@ -21,7 +19,7 @@ export async function DELETE(req : NextRequest) {
 
         const berita = await prisma.berita.delete({
             where: {
-                id_berita: id
+                id_berita: id,
             }
         })
 
@@ -29,14 +27,14 @@ export async function DELETE(req : NextRequest) {
             console.log("delete gagal");
             return NextResponse.json({ data: "gagal" }, { status: 402 })
         }
-       
+
         console.log("delete berhasil");
         return NextResponse.json({ data: "berhasil" }, { status: 200 })
 
     } catch (error) {
         console.error(error)
         return NextResponse.json({ data: error }, { status: 500 })
-   }finally{
+    } finally {
         prisma.$disconnect()
-   }
+    }
 }
